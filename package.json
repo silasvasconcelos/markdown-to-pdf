@@ -1,10 +1,29 @@
 {
   "name": "markdown-to-pdf",
-  "displayName": "markdown-to-pdf",
-  "description": "Convert a markdown file to PDF",
+  "displayName": "Markdown to PDF",
+  "description": "Convert markdown files to beautifully formatted PDF documents",
   "version": "0.0.1",
+  "publisher": "silasvasconcelos",
+  "author": {
+    "name": "Silas Vasconcelos"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/silasvasconcelos/markdown-to-pdf"
+  },
+  "bugs": {
+    "url": "https://github.com/silasvasconcelos/markdown-to-pdf/issues"
+  },
+  "keywords": [
+    "markdown",
+    "pdf",
+    "converter",
+    "export",
+    "markdown-to-pdf"
+  ],
   "engines": {
-    "vscode": "^1.108.0"
+    "vscode": "^1.75.0"
   },
   "categories": [
     "Other"
@@ -14,16 +33,33 @@
   "contributes": {
     "commands": [
       {
-        "command": "markdown-to-pdf.helloWorld",
-        "title": "Hello World"
+        "command": "markdown-to-pdf.convertToPdf",
+        "title": "Markdown to PDF: Convert to PDF"
       }
-    ]
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "markdown-to-pdf.convertToPdf",
+          "when": "resourceLangId == markdown",
+          "group": "navigation"
+        }
+      ],
+      "editor/context": [
+        {
+          "command": "markdown-to-pdf.convertToPdf",
+          "when": "resourceLangId == markdown",
+          "group": "navigation"
+        }
+      ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run package",
     "compile": "webpack",
     "watch": "webpack --watch",
     "package": "webpack --mode production --devtool hidden-source-map",
+    "build": "npm run package && vsce package",
     "compile-tests": "tsc -p . --outDir out",
     "watch-tests": "tsc -p . -w --outDir out",
     "pretest": "npm run compile-tests && npm run compile && npm run lint",
@@ -31,16 +67,23 @@
     "test": "vscode-test"
   },
   "devDependencies": {
-    "@types/vscode": "^1.108.0",
+    "@types/markdown-it": "^14.1.2",
     "@types/mocha": "^10.0.10",
     "@types/node": "22.x",
-    "typescript-eslint": "^8.48.1",
-    "eslint": "^9.39.1",
-    "typescript": "^5.9.3",
-    "ts-loader": "^9.5.4",
-    "webpack": "^5.103.0",
-    "webpack-cli": "^6.0.1",
+    "@types/vscode": "^1.75.0",
     "@vscode/test-cli": "^0.0.12",
-    "@vscode/test-electron": "^2.5.2"
+    "@vscode/test-electron": "^2.5.2",
+    "@vscode/vsce": "^3.7.1",
+    "eslint": "^9.39.1",
+    "ts-loader": "^9.5.4",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.48.1",
+    "webpack": "^5.103.0",
+    "webpack-cli": "^6.0.1"
+  },
+  "dependencies": {
+    "chrome-launcher": "^1.2.1",
+    "markdown-it": "^14.1.0",
+    "puppeteer-core": "^24.34.0"
   }
 }
