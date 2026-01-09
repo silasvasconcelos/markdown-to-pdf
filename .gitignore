@@ -3,3 +3,6 @@ dist
 node_modules
 .vscode-test/
 *.vsix
+test-sample.md
+test-sample.pdf
+*.pdf
