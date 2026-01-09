@@ -44,5 +44,11 @@ const extensionConfig = {
   infrastructureLogging: {
     level: "log", // enables logging required for problem matchers
   },
+  ignoreWarnings: [
+    {
+      module: /node_modules\/ws\/lib/,
+      message: /Can't resolve '(bufferutil|utf-8-validate)'/,
+    },
+  ],
 };
 module.exports = [ extensionConfig ];
