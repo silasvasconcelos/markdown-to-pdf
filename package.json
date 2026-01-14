@@ -4,16 +4,22 @@
   "description": "Convert markdown files to beautifully formatted PDF documents",
   "version": "0.0.1",
   "publisher": "silasvasconcelos",
+  "icon": "icon.png",
   "author": {
     "name": "Silas Vasconcelos"
   },
   "license": "MIT",
+  "homepage": "https://github.com/silasvasconcelos/markdown-to-pdf",
   "repository": {
     "type": "git",
-    "url": "https://github.com/silasvasconcelos/markdown-to-pdf"
+    "url": "https://github.com/silasvasconcelos/markdown-to-pdf.git"
   },
   "bugs": {
     "url": "https://github.com/silasvasconcelos/markdown-to-pdf/issues"
+  },
+  "galleryBanner": {
+    "color": "#1E1E1E",
+    "theme": "dark"
   },
   "keywords": [
     "markdown",

@@ -6,3 +6,4 @@ node_modules
 test-sample.md
 test-sample.pdf
 *.pdf
+.DS_Store
